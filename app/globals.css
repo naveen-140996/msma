@@ -1,0 +1,40 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-banner-swiper .swiper .swiper-button-next{
+  background:#ccc;
+  color:#000;
+  border-radius: 50%;
+  width:40px;
+  height:40px;
+}
+
+.hero-banner-swiper .swiper .swiper-button-next::after{
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hero-banner-swiper .swiper .swiper-button-prev{
+  background:#ccc;
+  color:#000;
+  border-radius: 50%;
+  width:40px;
+  height:40px;
+}
+
+.hero-banner-swiper .swiper .swiper-button-prev::after{
+  font-size: 16px;
+  font-weight: 700;
+}

@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="bg-brand-gradient text-white fixed top-0 left-0 w-full z-50 shadow-lg">
+    <header className="bg-[#ffffff57] text-primary sticky top-0 left-0 w-full z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm lg:text-base font-medium">
+          <nav className="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm lg:text-base font-semibold">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -84,7 +84,7 @@ const Header: React.FC = () => {
         <div className="flex justify-end p-4">
           <button
             onClick={closeMenu}
-            className="p-2 rounded-md focus:outline-none"
+            className="p-2 rounded-md focus:outline-none text-white"
             aria-label="Close menu"
           >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -98,8 +98,8 @@ const Header: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              onClick={closeMenu} // Close menu & smooth scroll to section
-              className="hover:text-primary transition duration-300 py-2 border-b border-gray-800 last:border-0"
+              onClick={closeMenu}
+              className="hover:text-primary transition duration-300 py-2 border-b border-gray-800 last:border-0 text-white"
             >
               {link.name}
             </a>
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
         </nav>
       </div>
 
-      {/* Overlay when menu open (click to close) */}
+      {/* Overlay when menu open */}
       {isOpen && (
         <div
           onClick={closeMenu}

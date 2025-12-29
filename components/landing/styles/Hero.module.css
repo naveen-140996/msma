@@ -1,0 +1,172 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.content {
+  text-align: center;
+  max-width: 900px;
+  z-index: 2;
+}
+
+.content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.cta {
+  background: #262524;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta:hover {
+  background: #898989;
+  color:#262524;
+}
+
+/* Floating Elements */
+.floating {
+  position: absolute;
+  z-index: 1;
+}
+
+.circle {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.iconCircle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #fff4e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Positions */
+.leftTop {
+  top: 80px;
+  left: 80px;
+}
+
+.rightTop {
+  top: 90px;
+  right: 120px;
+}
+
+.leftBottom {
+  bottom: 100px;
+  left: 120px;
+}
+
+.rightBottom {
+  bottom: 80px;
+  right: 80px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  
+
+  .hero {
+    padding: 10px 20px 10px;
+     width: 100%;
+  }
+   .hero.show .leftTop img{
+      width: 150px !important;
+      height: 150px !important;
+  }
+  .hero.show .rightBottom img{
+      width: 150px !important;
+      height: 150px !important;
+  }
+}
+@media(max-width:1024px){
+   .hero {
+     width: 100%;
+  }
+  .hero.show .leftTop img{
+      width: 180px ;
+      height: 180px;
+  }
+  .hero.show .rightBottom img{
+      width: 180px;
+      height: 180px;
+  }
+}
+
+@media(max-width:767px){
+  .floating {
+    display: none;
+  }
+}
+/* Animation Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initial hidden state */
+.hero .floating,
+.hero .content {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* When visible */
+.hero.show .content {
+  animation: fadeUp 0.9s ease-out forwards;
+}
+
+.hero.show .leftTop {
+  animation: fadeUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero.show .rightTop {
+  animation: fadeUp 0.8s ease-out 0.4s forwards;
+}
+
+.hero.show .leftBottom {
+  animation: fadeUp 0.8s ease-out 0.6s forwards;
+}
+
+.hero.show .rightBottom {
+  animation: fadeUp 0.8s ease-out 0.8s forwards;
+}
+
+.hide .content,
+.hide .floating {
+  opacity: 0;
+  transform: translateY(40px);
+}

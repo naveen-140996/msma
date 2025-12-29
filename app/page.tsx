@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
 
       {/* Main Content - starts below header */}
-      <main className="pt-16"> {/* pt-16 = height of header (h-16) */}
+      <main> {/* pt-16 = height of header (h-16) */}
         
         {/* Hero Banner - Full screen slider */}
         <HeroBanner />

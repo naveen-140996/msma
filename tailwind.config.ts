@@ -13,7 +13,7 @@ const config: Config = {
       },
       backgroundImage: {
         "brand-gradient":
-          "linear-gradient(45deg,#595959,#060606)",
+          "linear-gradient(45deg,#f7f7f7,#ffffff)",
       },
     },
   },

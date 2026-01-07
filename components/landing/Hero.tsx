@@ -92,6 +92,23 @@ export default function Hero() {
             </text>
           </svg>
         </div>
+        
+          <div className="absolute">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="md:w-10 md:h-10 rotate-[310deg] w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#ffb200"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 12h14M12 5l7 7-7 7"
+              />
+            </svg>
+          </div>
       </div>
     </section>
   );

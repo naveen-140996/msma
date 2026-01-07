@@ -111,8 +111,8 @@ export default function AboutSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#about"
-            className="inline-flex items-center gap-3 text-sm bg-primary font-gilroy
-              text-secondPrimary backdrop-blur-md hover:bg-[#000] hover:text-secondary transition text-[#000] px-8 py-4 rounded-full font-medium shadow-lg"
+            className="inline-flex items-center gap-3 text-sm bg-secondPrimary font-gilroy
+              text-secondary backdrop-blur-md hover:bg-[#000] hover:text-secondary transition text-[#000] px-8 py-4 rounded-full font-medium shadow-lg"
           >
             Learn More About Us
             <ArrowRight className="w-5 h-5" />

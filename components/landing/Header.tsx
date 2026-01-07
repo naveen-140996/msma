@@ -187,9 +187,27 @@ export default function Header() {
             </Link>
           ))}
 
-          <button className="mt-6 px-6 py-4 rounded-full bg-[#ffb200] font-semibold text-black">
-            Book Appointment
-          </button>
+           <button
+  className="
+    ml-4 px-6 py-3 rounded-full
+    font-medium text-sm
+    text-secondPrimary
+    bg-blur-gradient
+    backdrop-blur-md
+    font-gilroy
+    /* DEPTH */
+    shadow-[0_8px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)]
+    
+    /* INTERACTION */
+    transition-all duration-300 ease-out
+    hover:-translate-y-[1px]
+    hover:shadow-[0_14px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.3)]
+    active:translate-y-[1px]
+    active:shadow-[0_6px_18px_rgba(0,0,0,0.4)]
+  "
+>
+  Book Appointment
+</button>
         </nav>
       </aside>
     </>

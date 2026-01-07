@@ -7,7 +7,7 @@ import AboutusImg from "@/public/assets/images/about-us-img.png"
 
 export default function AboutSection() {
   return (
-    <section className="w-full py-20 px-4 md:px-16 bg-secondary overflow-hidden">
+    <section className="w-full py-20 px-4 md:px-16  overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         {/* LEFT IMAGE */}
         <motion.div
@@ -37,17 +37,17 @@ export default function AboutSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* ABOUT TAG */}
-          <p className="uppercase tracking-widest text-[16px] font-bold text-primary mb-3">
+          <p className="uppercase tracking-widest text-[16px] font-bold text-primary mb-3 text-secondPrimary font-neuepower">
             About Us
           </p>
 
           {/* TITLE */}
-          <h2 className="text-[34px] md:text-[44px] font-extrabold text-gray-900 leading-tight mb-6">
+          <h2 className="text-[34px] md:text-[44px] font-extrabold text-gray-900 leading-tight mb-6 font-gilroy">
             Your Trusted <br /> Technology Partner
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="text-gray-600 text-[15px] leading-relaxed mb-10 max-w-xl">
+          <p className="text-gray-600 text-[15px] leading-relaxed mb-10 max-w-xl font-gilroy font-medium">
             MSMA Enterprises is an IT solutions company delivering reliable,
             scalable, and business-focused digital services. We work with
             startups, SMEs, and growing enterprises to transform ideas into
@@ -68,11 +68,11 @@ export default function AboutSection() {
         <Rocket className="text-primary w-6 h-6" />
       </div>
 
-      <div>
-        <h4 className="font-semibold text-gray-900 mb-2 text-[16px]">
+      <div> 
+        <h4 className="font-semibold text-gray-900 mb-2 text-[16px] font-gilroy">
           Our Mission
         </h4>
-        <p className="text-sm text-gray-600 leading-relaxed">
+        <p className="text-sm text-gray-600 leading-relaxed font-gilroy">
           Revolutionize the way you work through innovative and scalable
           technology solutions designed for modern businesses.
         </p>
@@ -92,10 +92,10 @@ export default function AboutSection() {
       </div>
 
       <div>
-        <h4 className="font-semibold text-gray-900 mb-2 text-[16px]">
+        <h4 className="font-semibold text-gray-900 mb-2 text-[16px] font-gilroy">
           Our Vision
         </h4>
-        <p className="text-sm text-gray-600 leading-relaxed">
+        <p className="text-sm text-gray-600 leading-relaxed font-gilroy">
           Empower organizations to achieve sustainable growth through
           future-ready digital systems and technology innovation.
         </p>
@@ -111,7 +111,8 @@ export default function AboutSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#about"
-            className="inline-flex items-center gap-3 bg-primary hover:bg-[#000] hover:text-secondary transition text-[#000] px-8 py-4 rounded-full font-medium shadow-lg"
+            className="inline-flex items-center gap-3 text-sm bg-primary font-gilroy
+              text-secondPrimary backdrop-blur-md hover:bg-[#000] hover:text-secondary transition text-[#000] px-8 py-4 rounded-full font-medium shadow-lg"
           >
             Learn More About Us
             <ArrowRight className="w-5 h-5" />

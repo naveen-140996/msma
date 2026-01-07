@@ -41,7 +41,7 @@ export default function Header() {
             mx-auto transition-all duration-500
             ${isSticky
               ? "w-full px-0"
-              : "max-w-8xl px-4 pt-4"}
+              : "max-w-8xl"}
           `}
         >
           <div
@@ -50,20 +50,20 @@ export default function Header() {
               transition-all duration-500
               ${isSticky
                 ? "rounded-none animated-silver-gradient shadow-xl"
-                : "rounded-2xl bg-brand-gradient"}
+                : " bg-brand-gradient"}
             `}
           >
             {/* LOGO */}
             <Image src={Logo} alt="logo" className="w-[90px]" />
 
             {/* DESKTOP NAV */}
-            <nav className="hidden md:flex items-center gap-8 font-semibold">
+            <nav className="hidden md:flex items-center gap-8 ">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
                   className={`
-                    transition
+                    transition font-semibold font-gilroy
                     ${pathname === item.path
                       ? "text-white border-b-2 border-[#ffb200]"
                       : "text-black hover:text-white hover:border-b-2 hover:border-[#ffb200]"}
@@ -76,11 +76,11 @@ export default function Header() {
              <button
   className="
     ml-4 px-6 py-3 rounded-full
-    font-semibold text-sm
+    font-medium text-sm
     text-white
     bg-blur-gradient
     backdrop-blur-md
-
+    font-gilroy
     /* DEPTH */
     shadow-[0_8px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)]
     

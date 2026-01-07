@@ -66,7 +66,7 @@ export default function Header() {
                     transition font-semibold font-gilroy
                     ${pathname === item.path
                       ? "text-white border-b-2 border-[#ffb200]"
-                      : "text-black hover:text-white hover:border-b-2 hover:border-[#ffb200]"}
+                      : "text-white hover:text-white hover:border-b-2 hover:border-[#ffb200]"}
                   `}
                 >
                   {item.label}
@@ -180,7 +180,7 @@ export default function Header() {
               className={`
                 text-lg font-semibold transition-all duration-500
                 ${open ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"}
-                ${pathname === item.path ? "text-white" : "text-[#000"}
+                ${pathname === item.path ? "text-white" : "text-white"}
               `}
             >
               {item.label}
@@ -191,7 +191,7 @@ export default function Header() {
   className="
     ml-4 px-6 py-3 rounded-full
     font-medium text-sm
-    text-secondPrimary
+    text-white
     bg-blur-gradient
     backdrop-blur-md
     font-gilroy

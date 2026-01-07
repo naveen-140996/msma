@@ -106,3 +106,13 @@ body{
   );
   background-size: 100% 200%;
 }
+
+/* Running dashed line animation */
+@keyframes dash-move {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -24;
+  }
+}

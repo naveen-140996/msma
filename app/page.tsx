@@ -2,6 +2,7 @@ import Hero from "@/components/landing/Hero";
 import Header from '@/components/landing/Header';
 import Footer from '@/components/landing/Footer';
 import AboutSection from "@/components/landing/AboutSection";
+import ServicesSection from "@/components/landing/ServiceSection";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <main className="min-h-screen ">
         <Hero />
         <AboutSection />
+        <ServicesSection />
       </main>
       <Footer />
     </>

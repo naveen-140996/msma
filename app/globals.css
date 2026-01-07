@@ -1,40 +1,95 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html{
-  scroll-behavior: smooth;
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: 'gilroy_regular';
+  src: url('/src/assets/fonts/gilroy/gilroy_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-.hero-banner-swiper .swiper .swiper-button-next{
-  background:#ccc;
-  color:#000;
-  border-radius: 50%;
-  width:40px;
-  height:40px;
+@font-face {
+  font-family: 'gilroy_medium';
+  src: url('/src/assets/fonts/gilroy/gilroy_medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-.hero-banner-swiper .swiper .swiper-button-next::after{
-  font-size: 16px;
+@font-face {
+  font-family: 'gilroy_bold';
+  src: url('/src/assets/fonts/gilroy/gilroy_bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'gilroy_semibold';
+  src: url('/src/assets/fonts/gilroy/gilroy_semibold.ttf') format('truetype');
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-.hero-banner-swiper .swiper .swiper-button-prev{
-  background:#ccc;
-  color:#000;
-  border-radius: 50%;
-  width:40px;
-  height:40px;
+@font-face {
+  font-family: 'gilroy_extrabold';
+  src: url('/src/assets/fonts/gilroy/gilroy_extrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }
 
-.hero-banner-swiper .swiper .swiper-button-prev::after{
-  font-size: 16px;
-  font-weight: 700;
+@font-face{
+  font-family: 'neuepower';
+  src: url('/src/assets/fonts/NeuePower/NeuePower-Ultra.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #fff;
+}
+
+
+@keyframes silverFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-silver-gradient {
+  background: linear-gradient(
+    135deg,
+    #0a0a0a,
+    #2b2b2b,
+    #9f9f9f,
+    #e5e7eb,
+    #2b2b2b,
+    #0a0a0a
+  );
+  background-size: 300% 300%;
+  animation: silverFlow 6s ease infinite;
 }

@@ -1,121 +1,197 @@
-// components/Header.tsx
 "use client";
 
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import Logo from "@/public/assets/msma-logo.png";
 
-const Header: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Header() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  /* STICKY DETECTION */
+  useEffect(() => {
+    const onScroll = () => setIsSticky(window.scrollY > 12);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const closeMenu = () => setIsOpen(false);
+  /* LOCK BODY SCROLL */
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "#about-us" },
-    { name: "Services", href: "#services" },
-    { name: "Why Choose Us", href: "#why-choose-us" },
-    { name: "Contact", href: "#contact" },
+  const navItems = [
+    { label: "Home", path: "/" },
+    { label: "About Us", path: "/about" },
+    { label: "Services", path: "/services" },
+    { label: "Portfolio", path: "/portfolio" },
+    { label: "Tesitimonials", path: "/tesitimonials" },
+    { label: "Blog", path: "/blog" },
   ];
 
   return (
-    <header className="bg-[#ffffff57] text-primary sticky top-0 left-0 w-full z-50 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="/">
-              <Image
-                src={Logo}
-                alt="MSMA Logo"
-                width={140}
-                height={50}
-                priority
-                className="object-contain"
-              />
-            </a>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm lg:text-base font-semibold">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="hover:text-gray-300 transition duration-300"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-
-          {/* Mobile Hamburger Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Slide-In Menu (from right) */}
-      <div
-        className={`fixed inset-y-0 right-0 w-64 bg-black/95 backdrop-blur-md shadow-2xl transform transition-transform duration-500 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden z-50`}
-      >
-        {/* Close Button Inside Menu */}
-        <div className="flex justify-end p-4">
-          <button
-            onClick={closeMenu}
-            className="p-2 rounded-md focus:outline-none text-white"
-            aria-label="Close menu"
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        <nav className="flex flex-col px-8 pt-8 space-y-6 text-lg font-medium">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={closeMenu}
-              className="hover:text-primary transition duration-300 py-2 border-b border-gray-800 last:border-0 text-white"
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
-      </div>
-
-      {/* Overlay when menu open */}
-      {isOpen && (
+    <>
+      {/* ================= HEADER ================= */}
+      <header className="sticky top-0 z-50 w-full transition-all duration-500">
         <div
-          onClick={closeMenu}
-          className="fixed inset-0 bg-black/50 md:hidden z-40 transition-opacity duration-500"
-        />
-      )}
-    </header>
-  );
-};
+          className={`
+            mx-auto transition-all duration-500
+            ${isSticky
+              ? "w-full px-0"
+              : "max-w-8xl px-4 pt-4"}
+          `}
+        >
+          <div
+            className={`
+              flex items-center justify-between px-6 py-4
+              transition-all duration-500
+              ${isSticky
+                ? "rounded-none animated-silver-gradient shadow-xl"
+                : "rounded-2xl bg-brand-gradient"}
+            `}
+          >
+            {/* LOGO */}
+            <Image src={Logo} alt="logo" className="w-[90px]" />
 
-export default Header;
+            {/* DESKTOP NAV */}
+            <nav className="hidden md:flex items-center gap-8 font-semibold">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className={`
+                    transition
+                    ${pathname === item.path
+                      ? "text-white border-b-2 border-[#ffb200]"
+                      : "text-black hover:text-white hover:border-b-2 hover:border-[#ffb200]"}
+                  `}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+             <button
+  className="
+    ml-4 px-6 py-3 rounded-full
+    font-semibold text-sm
+    text-white
+    bg-blur-gradient
+    backdrop-blur-md
+
+    /* DEPTH */
+    shadow-[0_8px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)]
+    
+    /* INTERACTION */
+    transition-all duration-300 ease-out
+    hover:-translate-y-[1px]
+    hover:shadow-[0_14px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.3)]
+    active:translate-y-[1px]
+    active:shadow-[0_6px_18px_rgba(0,0,0,0.4)]
+  "
+>
+  Book Appointment
+</button>
+            </nav>
+          {/* MOBILE MENU BUTTON */}
+            <button
+              onClick={() => setOpen(true)}
+              className="
+                md:hidden
+                w-12 h-12 rounded-full
+                bg-black/30 backdrop-blur-md
+                flex items-center justify-center
+                relative
+                transition-all duration-300
+              "
+            >
+              {/* LINE 1 – LONG */}
+              <span
+                className={`
+                  absolute h-[2.5px] bg-white rounded-full
+                  transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
+                  ${open ? "w-6 rotate-45 translate-y-0" : "w-7 -translate-y-[7px]"}
+                `}
+              />
+
+              {/* LINE 2 – MEDIUM */}
+              <span
+                className={`
+                  absolute h-[2.5px] bg-white rounded-full
+                  transition-all duration-300
+                  ${open ? "opacity-0 scale-0" : "w-5"}
+                `}
+              />
+
+              {/* LINE 3 – SHORT */}
+              <span
+                className={`
+                  absolute h-[2.5px] bg-white rounded-full
+                  transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
+                  ${open ? "w-6 -rotate-45 translate-y-0" : "w-3 translate-y-[7px]"}
+                `}
+              />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* ================= OVERLAY ================= */}
+      <div
+        onClick={() => setOpen(false)}
+        className={`
+          fixed inset-0 z-[998]
+          bg-black/40 backdrop-blur-md
+          transition-opacity duration-500
+          ${open ? "opacity-100 visible" : "opacity-0 invisible"}
+        `}
+      />
+
+      {/* ================= MOBILE MENU ================= */}
+      <aside
+        className={`
+          fixed inset-y-0 right-0 z-[999]
+          w-full
+          transition-transform duration-700
+          ease-[cubic-bezier(.22,1,.36,1)]
+          ${open ? "translate-x-0" : "translate-x-full"}
+          ${isSticky ? "animated-silver-gradient" : "bg-brand-gradient"}
+        `}
+      >
+        {/* CLOSE BUTTON */}
+        <button
+          onClick={() => setOpen(false)}
+          className="absolute top-6 right-6 w-11 h-11 rounded-full bg-black/40 flex items-center justify-center"
+        >
+          <span className="absolute w-5 h-[2px] bg-white rotate-45" />
+          <span className="absolute w-5 h-[2px] bg-white -rotate-45" />
+        </button>
+
+        {/* MENU */}
+        <nav className="pt-32 px-8 flex flex-col gap-8">
+          {navItems.map((item, i) => (
+            <Link
+              key={item.path}
+              href={item.path}
+              onClick={() => setOpen(false)}
+              style={{ transitionDelay: `${i * 100}ms` }}
+              className={`
+                text-lg font-semibold transition-all duration-500
+                ${open ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"}
+                ${pathname === item.path ? "text-white" : "text-[#000"}
+              `}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          <button className="mt-6 px-6 py-4 rounded-full bg-[#ffb200] font-semibold text-black">
+            Book Appointment
+          </button>
+        </nav>
+      </aside>
+    </>
+  );
+}

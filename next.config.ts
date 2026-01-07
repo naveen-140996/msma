@@ -61,6 +61,16 @@ const nextConfig = {
     protocol: 'https',
     hostname: 'content.presentermedia.com',
   },
+  {
+        protocol: 'https',
+        hostname: 'images.rawpixel.com',
+      },
+      {
+    protocol: 'https',
+    hostname: 'static.vecteezy.com',
+  },
+  
+
     ],
   },
 };

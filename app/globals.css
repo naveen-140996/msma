@@ -93,3 +93,16 @@ body{
   background-size: 300% 300%;
   animation: silverFlow 6s ease infinite;
 }
+
+/* ===== PROFESSIONAL SILVER-BLACK HERO ===== */
+.hero-premium-bg {
+  background: linear-gradient(
+    180deg,
+    #f7f7f7 0%,
+    #eeeeee 35%,
+    #e6e6e6 55%,
+    #ededed 75%,
+    #f7f7f7 100%
+  );
+  background-size: 100% 200%;
+}
